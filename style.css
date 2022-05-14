@@ -1,0 +1,169 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: rgb(23,118,34);
+  background: radial-gradient(circle, rgba(23,118,34,1) 0%, rgba(99,132,28,1) 43%, rgba(21,76,22,1) 93%);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.form.active {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  
+  padding: 0 40px;
+  background-color: rgb(33, 67, 23);
+  border-radius: 30px;
+  box-shadow: 0 0 15px 5px rgb(115, 171, 33);
+}
+
+.timer {
+  font-size: 48px;
+  color: rgb(196, 234, 7);
+  text-shadow: 0 0 15px #000;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 20px;
+  box-shadow: 0 0 5px 2px rgb(207, 225, 13);
+}
+
+.form.active .btn.restart, .form.active .input.restart, .list.restart, .form.active .form-text.restart, .timer.restart{
+  display: none;
+}
+
+.form {
+  display: none;
+}
+
+.form-text {
+  display: inline-block;
+  margin-bottom: 10px;
+  font-size: 36px;
+  color: rgb(184, 247, 10);
+}
+
+.input {
+  width: 350px;
+  height: 50px;
+  margin-bottom: 20px;
+  outline: 2px solid rgb(34, 141, 17);
+  overflow: hidden;
+  box-shadow: 0 0 10px 5px rgba(5, 93, 12, 0.797);
+  background-color: rgba(35, 114, 6, 0.311);
+  border-radius: 10px;
+  border: 1px solid transparent;
+  padding-left: 10px;
+  font-size: 16px;
+  color: rgb(255, 255, 255);
+  text-shadow: 0 0 4px rgb(9, 41, 1);
+}
+
+.input::placeholder {
+  padding-left: 10px;
+  font-size: 16px;
+  color: rgb(255, 255, 255);
+  text-shadow: 0 0 4px rgb(9, 41, 1);
+}
+
+.input.errore {
+  box-shadow: 0 0 10px 5px rgba(220, 17, 17, 0.797);
+}
+
+.btn {
+  width: 200px;
+  height: 50px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  outline: 2px solid rgb(34, 141, 17);
+  box-shadow: 0 0 10px 5px rgba(5, 93, 12, 0.797);
+  background-color: rgba(35, 114, 6, 0.311);
+  font-size: 16px;
+  color: rgb(255, 255, 255);
+  text-shadow: 0 0 4px rgb(9, 41, 1);
+  cursor: pointer;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  position: relative;
+  height: 100px;
+  width: 120px;
+  margin: 3px;
+}
+
+.item-front, .item-back {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  backface-visibility: hidden;
+  height: 100%;
+  width: 100%;
+  transition: transform linear .5s;
+}
+
+.item-front {
+  background-color: rgb(111, 174, 33);
+  transform: perspective(600px) rotateY(-180deg);
+}
+
+.item-back {
+  background-color: rgb(4, 28, 2);
+  border: 1px solid #fff;
+  transform: perspective(600px) rotateY(0deg);
+}
+
+.item.remove .item-front {
+  transform: rotateY(0deg);
+}
+
+.item.remove .item-back {
+  transform: rotateY(-180deg);
+}
+
+.item.open .item-front {
+  transform: rotateY(0deg);
+}
+
+.item.open .item-back {
+  transform: rotateY(-180deg);
+}
+
+.item.active .item-front {
+  transform: rotateY(0deg);
+  box-shadow: 0 0 5px 2px rgb(250, 254, 4);
+}
+
+.item.active .item-back {
+  transform: rotateY(-180deg);
+  box-shadow: 0 0 5px 2px rgb(250, 254, 4);
+}
+
+.text {
+  font-size: 48px;
+  font-weight: 600;
+  color: rgb(12, 53, 3);
+  text-shadow: 0 0 5px rgb(218, 236, 116);
+}
